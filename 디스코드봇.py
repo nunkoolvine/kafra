@@ -73,6 +73,15 @@ async def on_message(message):
         sec = secint
         print(sec)
         current1 =  datetime.datetime.now()
+        if min*60+sec>900:
+            tima11=1
+            tima12=1
+            tima13=1
+        elif min*60+sec>300:
+            tima12=1
+            tima13=1
+        elif min*60+sec>0
+            tima13=1
         later11 = current1 + datetime.timedelta(seconds=min*60+sec-900)
         later12 = current1 + datetime.timedelta(seconds=min*60+sec-300)
         later13 = current1 + datetime.timedelta(seconds=min*60+sec)
