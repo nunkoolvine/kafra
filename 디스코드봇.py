@@ -42,9 +42,6 @@ async def on_message(message):
     if message.content.startswith('드라'):
         on1 = 0
         await asyncio.sleep(1)
-        tima11 = 1
-        tima12 = 1
-        tima13 = 1
         current1 =  datetime.datetime.now()
         textmin = ""
         textsec = ""
@@ -72,23 +69,28 @@ async def on_message(message):
         secint = int(textsec)
         sec = secint
         print(sec)
-        current1 =  datetime.datetime.now()
-        if min*60+sec>900:
+        current1 = datetime.datetime.now()
+        if min * 60 + sec > 900:
             tima11=1
             tima12=1
             tima13=1
-        elif min*60+sec>300:
+        elif min * 60 + sec > 300:
+            tima11=0
             tima12=1
             tima13=1
-        elif min*60+sec>0
+        elif min * 60 + sec > 0:
+            tima11=0
+            tima12=0
             tima13=1
         later11 = current1 + datetime.timedelta(seconds=min*60+sec-900)
         later12 = current1 + datetime.timedelta(seconds=min*60+sec-300)
         later13 = current1 + datetime.timedelta(seconds=min*60+sec)
 
         
-        print('later1')
-        print(later1)
+        print('tima')
+        print(tima11)
+        print(tima12)
+        print(tima13)
         on1 = 1
         while on1 == 1:
             await asyncio.sleep(0.1) 
@@ -96,19 +98,17 @@ async def on_message(message):
             print(current1)
             if current1 > later11 and tima11==1:
                 commander = discord.utils.get(message.guild.roles, name="드라큐라")
-                await message.channel.send("{} 갱신까지 5분 남았습니다.".format(commander.mention))
+                await message.channel.send("{} 젠까지 15분 남았습니다..".format(commander.mention))
                 tima11=0
-                break
             if current1 > later12 and tima12==1:
                 commander = discord.utils.get(message.guild.roles, name="드라큐라")
-                await message.channel.send("{} 갱신까지 5분 남았습니다.".format(commander.mention))
+                await message.channel.send("{} 젠까지 5분 남았습니다..".format(commander.mention))
                 tima12=0
-                break
             if current1 > later13 and tima13==1:
                 commander = discord.utils.get(message.guild.roles, name="드라큐라")
-                await message.channel.send("{} 갱신까지 5분 남았습니다.".format(commander.mention))
+                await message.channel.send("{}가 게펜 탑 3층에 나타났습니다..".format(commander.mention))
                 tima13=0
-                break
+        
 
 
     if message.content.startswith('에드가'):
@@ -160,21 +160,6 @@ async def on_message(message):
                 await message.channel.send("{} 갱신까지 5분 남았습니다.".format(commander.mention))
                 break
 
-
-#       """ if min*60+sec > 595
-#            await asyncio.sleep((min-10)*60+sec)
-#
-#        if min*60+sec > 295
-#            await asyncio.sleep(300)# 이거 생각해보니까 마지막거가 아니고 맨 나중에 끝나는 거 위주로 됨..
-#        
-#            if(count1 == countt1):
-#                commander = discord.utils.get(message.guild.roles, name="드라큐라")
-#                await message.channel.send("{} 갱신까지 5분 남았습니다.".format(commander.mention))
-#                count1 = 0
-#                countt1 = 1
-#            else:
-#                countt1 += 1
-#        else:
             
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
