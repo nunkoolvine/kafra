@@ -17,7 +17,9 @@ current1 = datetime.datetime.now()
 current2 = datetime.datetime.now()
 on1=1
 on2=1
-
+tima11 = 1
+tima12 = 1
+tima13 = 1
 @client.event
 async def on_ready():
     print("bot online!")
@@ -34,9 +36,15 @@ async def on_message(message):
     global later1
     global current2
     global later2
+    global tima11
+    global tima12
+    global tima13
     if message.content.startswith('드라'):
         on1 = 0
         await asyncio.sleep(1)
+        tima11 = 1
+        tima12 = 1
+        tima13 = 1
         current1 =  datetime.datetime.now()
         textmin = ""
         textsec = ""
@@ -65,12 +73,11 @@ async def on_message(message):
         sec = secint
         print(sec)
         current1 =  datetime.datetime.now()
-        later1 = current1 + datetime.timedelta(seconds=min*60+sec-300)
-        
-        
-        #await client.send_message(channel,'daracula is about to come back.')
+        later11 = current1 + datetime.timedelta(seconds=min*60+sec-900)
+        later12 = current1 + datetime.timedelta(seconds=min*60+sec-300)
+        later13 = current1 + datetime.timedelta(seconds=min*60+sec)
 
-        #threading.Timer(aasdf,draann)
+        
         print('later1')
         print(later1)
         on1 = 1
@@ -78,10 +85,22 @@ async def on_message(message):
             await asyncio.sleep(0.1) 
             current1 =  datetime.datetime.now()
             print(current1)
-            if current1 > later1:
+            if current1 > later11 and tima11==1:
                 commander = discord.utils.get(message.guild.roles, name="드라큐라")
                 await message.channel.send("{} 갱신까지 5분 남았습니다.".format(commander.mention))
+                tima11=0
                 break
+            if current1 > later12 and tima12==1:
+                commander = discord.utils.get(message.guild.roles, name="드라큐라")
+                await message.channel.send("{} 갱신까지 5분 남았습니다.".format(commander.mention))
+                tima12=0
+                break
+            if current1 > later13 and tima13==1:
+                commander = discord.utils.get(message.guild.roles, name="드라큐라")
+                await message.channel.send("{} 갱신까지 5분 남았습니다.".format(commander.mention))
+                tima13=0
+                break
+
 
     if message.content.startswith('에드가'):
         on2 = 0
