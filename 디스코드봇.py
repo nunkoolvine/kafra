@@ -80,7 +80,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    print(message)
+    #print(message)
     if message.author == client.user: # 만약 메시지를 보낸 사람과 봇이 서로 같을 때 
         return
 
