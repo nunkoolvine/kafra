@@ -33,7 +33,8 @@ async def on_ready():
 @client.event
 async def on_message(message):
     #print(message.channel)
-
+    if message.author == client.user: # 만약 메시지를 보낸 사람과 봇이 서로 같을 때 
+        return
     if message.content.startswith('/직업') or message.content.startswith('/알림'):
         textrole = ""
         learn = message.content.split(" ")
@@ -48,7 +49,13 @@ async def on_message(message):
             member = message.author
             #print(member)
             #print(role)
-            await member.add_roles(role)
+            try:
+                await member.add_roles(role)
+                await message.channel.send(str(member)+"님에게 "+str(role)+" 역할을 부여했습니다.")
+            except(AttributeError):
+                await message.channel.send("존재하지 않는 역할입니다. 맞는 직업 또는 보스 명칭인지 확인해주세요. ")
+        
+            
 
     if message.content.startswith('엔젤링') or message.content.startswith('ㅇㅈㄹ'):
         global on01
@@ -100,6 +107,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on01 = 1
+        await message.channel.send("엔젤링 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         while on01 == 1:
             await asyncio.sleep(0.1) 
             current1 =  datetime.datetime.now()
@@ -167,6 +175,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on02 = 1
+        await message.channel.send("황금 도둑벌레 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         while on02 == 1:
             await asyncio.sleep(0.1) 
             current1 =  datetime.datetime.now()
@@ -234,6 +243,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on03 = 1
+        await message.channel.send("데빌링 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         while on03 == 1:
             await asyncio.sleep(0.1) 
             current1 =  datetime.datetime.now()
@@ -301,6 +311,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on04 = 1
+        await message.channel.send("오크 히어로 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         while on04 == 1:
             await asyncio.sleep(0.1) 
             current1 =  datetime.datetime.now()
@@ -368,6 +379,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on05 = 1
+        await message.channel.send("마야 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         commander = discord.utils.get(message.guild.roles, name="마야")
         while on05 == 1:
             await asyncio.sleep(0.1) 
@@ -433,6 +445,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on06 = 1
+        await message.channel.send("오크 로드 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         commander = discord.utils.get(message.guild.roles, name="오크 로드")
         while on06 == 1:
             await asyncio.sleep(0.1) 
@@ -498,6 +511,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on07 = 1
+        await message.channel.send("고블린 리더 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         commander = discord.utils.get(message.guild.roles, name="고블린 리더")
         while on07 == 1:
             await asyncio.sleep(0.1) 
@@ -563,6 +577,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on08 = 1
+        await message.channel.send("드레이크 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         commander = discord.utils.get(message.guild.roles, name="드레이크")
         while on08 == 1:
             await asyncio.sleep(0.1) 
@@ -628,6 +643,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on09 = 1
+        await message.channel.send("에드가 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         commander = discord.utils.get(message.guild.roles, name="에드가")
         while on09 == 1:
             await asyncio.sleep(0.1) 
@@ -693,6 +709,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on10 = 1
+        await message.channel.send("미스트레스 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         commander = discord.utils.get(message.guild.roles, name="미스트레스")
         while on10 == 1:
             await asyncio.sleep(0.1) 
@@ -758,6 +775,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on11 = 1
+        await message.channel.send("오시리스 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         commander = discord.utils.get(message.guild.roles, name="오시리스")
         while on11 == 1:
             await asyncio.sleep(0.1) 
@@ -823,6 +841,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on12 = 1
+        await message.channel.send("프리오니 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         commander = discord.utils.get(message.guild.roles, name="프리오니")
         while on12 == 1:
             await asyncio.sleep(0.1) 
@@ -888,6 +907,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on13 = 1
+        await message.channel.send("월야화 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         commander = discord.utils.get(message.guild.roles, name="월야화")
         while on13 == 1:
             await asyncio.sleep(0.1) 
@@ -953,6 +973,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on14 = 1
+        await message.channel.send("드라큐라 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         while on14 == 1:
             await asyncio.sleep(0.1) 
             current1 =  datetime.datetime.now()
@@ -1020,6 +1041,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on15 = 1
+        await message.channel.send("도플갱어 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         commander = discord.utils.get(message.guild.roles, name="도플갱어")
         while on15 == 1:
             await asyncio.sleep(0.1) 
@@ -1085,6 +1107,7 @@ async def on_message(message):
         #print(tima12)
         #print(tima13)
         on16 = 1
+        await message.channel.send("파라오 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
         commander = discord.utils.get(message.guild.roles, name="파라오")
         while on16 == 1:
             await asyncio.sleep(0.1) 
@@ -1142,15 +1165,16 @@ async def on_message(message):
             tima11=0
             tima12=0
             tima13=1
-        later11 = current1 + datetime.timedelta(seconds=min*60+sec-900)
-        later12 = current1 + datetime.timedelta(seconds=min*60+sec-300)
-        later13 = current1 + datetime.timedelta(seconds=min*60+sec)
+        later11 = current1 + datetime.timedelta(seconds=min*60+sec-898)
+        later12 = current1 + datetime.timedelta(seconds=min*60+sec-298)
+        later13 = current1 + datetime.timedelta(seconds=min*60+sec-2)
 
         #print(tima11)
         #print(tima12)
         #print(tima13)
         on17 = 1
         commander = discord.utils.get(message.guild.roles, name="바포메트")
+        await message.channel.send("바포메트 젠 시간을 "+str(min)+"분 "+str(sec)+"초로 받았습니다. 15분과 5분 전, 출몰 시에 알림을 보내드립니다.")
         while on17 == 1:
             await asyncio.sleep(0.1) 
             current1 =  datetime.datetime.now()
@@ -1165,7 +1189,7 @@ async def on_message(message):
                 await message.channel.send("{}가 미궁 숲 1층에 나타났습니다.".format(commander.mention))
                 tima13=0
                 break
-                                    
+                
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
 
