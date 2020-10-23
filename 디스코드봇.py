@@ -79,17 +79,15 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user: # 만약 메시지를 보낸 사람과 봇이 서로 같을 때 
         return
-    if message.content.startswith('ㅇㅂㅌ?') or message.content.startswith('이벤트?'):   
-        channell = client.get_channel("bot_channel")
-        guildd = client.get_guild("bot_guild")
+    if message.content.startswith('ㅇㅂㅌ?') or message.content.startswith('이벤트?'):
         now = time.localtime()
         week = ( '월', '화', '수', '목', '금', '토', '일' )
         if week[now.tm_wday] == '월':
-            await message.channel.send.send("월요일에는 팀 데스매치가 20:50~21:30에 진행됩니다.")
+            await message.channel.send("월요일에는 팀 데스매치가 20:50~21:30에 진행됩니다.")
         if week[now.tm_wday] == '화':
-            await message.channel.send.send("화요일에는 길드 파티가 20:00~20:20에, 극한 도전이 20:30~22:00에 진행됩니다.")
+            await message.channel.send("화요일에는 길드 파티가 20:00~20:20에, 극한 도전이 20:30~22:00에 진행됩니다.")
         if week[now.tm_wday] == '수':
-            await message.channel.send.send("수요일에는 패션 주간지가 05:00~24:00에, 길드 매칭전이 20:30~21:20에 진행됩니다.")
+            await message.channel.send("수요일에는 패션 주간지가 05:00~24:00에, 길드 매칭전이 20:30~21:20에 진행됩니다.")
         if week[now.tm_wday] == '목':
             await message.channel.send("목요일에는 길드 파티가 20:00~20:20에, 극한 도전이 20:30~22:00에 진행됩니다.")
         if week[now.tm_wday] == '금':
