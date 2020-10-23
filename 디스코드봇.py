@@ -48,7 +48,7 @@ async def frimorning():
     channell = client.get_channel(768663062449750046)
     guildd = client.get_guild(730294881020280873)
     dailyevent = discord.utils.get(guildd.roles, name="이벤트")
-    await channell.send("{} 금요일에는 팀 데스매치가 20:50~21:30에 진행됩니다.".format(dailyevent.mention))
+    await channell.send("{} 금요일에는 20:05부터, 팀 데스매치가 20:50~21:30에 진행됩니다.".format(dailyevent.mention))
 async def satmorning():
     channell = client.get_channel(768663062449750046)
     guildd = client.get_guild(730294881020280873)
