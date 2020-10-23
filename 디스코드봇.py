@@ -48,7 +48,7 @@ async def frimorning():
     channell = client.get_channel(768663062449750046)
     guildd = client.get_guild(730294881020280873)
     dailyevent = discord.utils.get(guildd.roles, name="이벤트")
-    await channell.send("{} 금요일에는 20:05부터, 팀 데스매치가 20:50~21:30에 진행됩니다.".format(dailyevent.mention))
+    await channell.send("{} 금요일에는 길드 사냥이 20:05부터, 팀 데스매치가 20:50~21:30에 진행됩니다.".format(dailyevent.mention))
 async def satmorning():
     channell = client.get_channel(768663062449750046)
     guildd = client.get_guild(730294881020280873)
@@ -93,7 +93,7 @@ async def on_message(message):
         if week[now.tm_wday] == '목':
             await message.channel.send("목요일에는 길드 파티가 20:00~20:20에, 극한 도전이 20:30~22:00에 진행됩니다.")
         if week[now.tm_wday] == '금':
-            await message.channel.send("금요일에는 팀 데스매치가 20:50~21:30에 진행됩니다.")
+            await message.channel.send("금요일에는 길드 사냥이 20:05부터, 팀 데스매치가 20:50~21:30에 진행됩니다.")
         if week[now.tm_wday] == '토':
             await message.channel.send("토요일에는 2인 이그드라실이 10:00~24:00에, 주말 길드 파티가 20:00~20:20에, 전장이 12:50~14:30과 21:20~23:00에 진행됩니다. 또, 아직 1인 이그드라실을 한번도 안 했다면 2회 완료하기 위해서라면 반드시 1인 이그드라실을 해야하는 날입니다.")
         if week[now.tm_wday] == '일':
