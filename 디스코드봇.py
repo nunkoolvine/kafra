@@ -23,45 +23,44 @@ global current2
 tima11 = 1
 tima12 = 1
 tima13 = 1
-channel = client.get_channel("bot_channel")
-guild = client.get_guild("bot_guild")
-
+channell = client.get_channel("bot_channel")
+guildd = client.get_guild("bot_guild")
     
 async def monmorning():
-    global channel
-    global guild
-    dailyevent = discord.utils.get(guild.roles, name="이벤트")
-    await channel.send("{} 월요일에는 팀 데스매치가 20:50~21:30에 진행됩니다.".format(dailyevent.mention))
+    channell = client.get_channel("bot_channel")
+    guildd = client.get_guild("bot_guild")
+    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
+    await channell.send("{} 월요일에는 팀 데스매치가 20:50~21:30에 진행됩니다.".format(dailyevent.mention))
 async def tuemorning():
-    global channel
-    global guild
-    dailyevent = discord.utils.get(guild.roles, name="이벤트")
-    await channel.send("{} 화요일에는 길드 파티가 20:00~20:20에, 극한 도전이 20:30~22:00에 진행됩니다.".format(dailyevent.mention))
+    channell = client.get_channel("bot_channel")
+    guildd = client.get_guild("bot_guild")
+    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
+    await channell.send("{} 화요일에는 길드 파티가 20:00~20:20에, 극한 도전이 20:30~22:00에 진행됩니다.".format(dailyevent.mention))
 async def wedmorning():
-    global channel
-    global guild
-    dailyevent = discord.utils.get(guild.roles, name="이벤트")
-    await channel.send("{} 수요일에는 패션 주간지가 05:00~24:00에, 길드 매칭전이 20:30~21:20에 진행됩니다.".format(dailyevent.mention))
+    channell = client.get_channel("bot_channel")
+    guildd = client.get_guild("bot_guild")
+    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
+    await channell.send("{} 수요일에는 패션 주간지가 05:00~24:00에, 길드 매칭전이 20:30~21:20에 진행됩니다.".format(dailyevent.mention))
 async def thumorning():
-    global channel
-    global guild
-    dailyevent = discord.utils.get(guild.roles, name="이벤트")
-    await channel.send("{} 목요일에는 길드 파티가 20:00~20:20에, 극한 도전이 20:30~22:00에 진행됩니다.".format(dailyevent.mention))
+    channell = client.get_channel("bot_channel")
+    guildd = client.get_guild("bot_guild")
+    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
+    await channell.send("{} 목요일에는 길드 파티가 20:00~20:20에, 극한 도전이 20:30~22:00에 진행됩니다.".format(dailyevent.mention))
 async def frimorning():
-    global channel
-    global guild
-    dailyevent = discord.utils.get(guild.roles, name="이벤트")
-    await channel.send("{} 금요일에는 팀 데스매치가 20:50~21:30에 진행됩니다.".format(dailyevent.mention))
+    channell = client.get_channel("bot_channel")
+    guildd = client.get_guild("bot_guild")
+    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
+    await channell.send("{} 금요일에는 팀 데스매치가 20:50~21:30에 진행됩니다.".format(dailyevent.mention))
 async def satmorning():
-    global channel
-    global guild
-    dailyevent = discord.utils.get(guild.roles, name="이벤트")
-    await channel.send("{} 토요일에는 2인 이그드라실이 10:00~24:00에, 주말 길드 파티가 20:00~20:20에, 전장이 12:50~14:30과 21:20~23:00에 진행됩니다. 또, 아직 1인 이그드라실을 한번도 안 했다면 2회 완료하기 위해서라면 반드시 1인 이그드라실을 해야하는 날입니다.".format(dailyevent.mention))
+    channell = client.get_channel("bot_channel")
+    guildd = client.get_guild("bot_guild")
+    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
+    await channell.send("{} 토요일에는 2인 이그드라실이 10:00~24:00에, 주말 길드 파티가 20:00~20:20에, 전장이 12:50~14:30과 21:20~23:00에 진행됩니다. 또, 아직 1인 이그드라실을 한번도 안 했다면 2회 완료하기 위해서라면 반드시 1인 이그드라실을 해야하는 날입니다.".format(dailyevent.mention))
 async def sunmorning():
-    global channel
-    global guild
-    dailyevent = discord.utils.get(guild.roles, name="이벤트")
-    await channel.send("{} 일요일에는 2인 이그드라실이 10:00~24:00에, 무도회가 20:00~20:30에, 길드 사냥이 20:30부터, 전장이 12:50~14:30과 21:20~23:00에 진행됩니다. 또, 1인 이그드라실과 무한의 탑이 초기화되는 마지막 날입니다.".format(dailyevent.mention))
+    channell = client.get_channel("bot_channel")
+    guildd = client.get_guild("bot_guild")
+    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
+    await channell.send("{} 일요일에는 2인 이그드라실이 10:00~24:00에, 무도회가 20:00~20:30에, 길드 사냥이 20:30부터, 전장이 12:50~14:30과 21:20~23:00에 진행됩니다. 또, 1인 이그드라실과 무한의 탑이 초기화되는 마지막 날입니다.".format(dailyevent.mention))
 
 
 
@@ -80,10 +79,28 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    #print(message)
     if message.author == client.user: # 만약 메시지를 보낸 사람과 봇이 서로 같을 때 
         return
-
+    if message.content.startswith('ㅇㅂㅌ?') or message.content.startswith('이벤트?'):   
+        channell = client.get_channel("bot_channel")
+        guildd = client.get_guild("bot_guild")
+        now = time.localtime()
+        week = ( '월', '화', '수', '목', '금', '토', '일' )
+        if week[now.tm_wday] == '월':
+            await channell.send("월요일에는 팀 데스매치가 20:50~21:30에 진행됩니다.")
+        if week[now.tm_wday] == '화':
+            await channell.send("화요일에는 길드 파티가 20:00~20:20에, 극한 도전이 20:30~22:00에 진행됩니다.")
+        if week[now.tm_wday] == '수':
+            await channell.send("수요일에는 패션 주간지가 05:00~24:00에, 길드 매칭전이 20:30~21:20에 진행됩니다.")
+        if week[now.tm_wday] == '목':
+            await channell.send("목요일에는 길드 파티가 20:00~20:20에, 극한 도전이 20:30~22:00에 진행됩니다.")
+        if week[now.tm_wday] == '금':
+            await channell.send("금요일에는 팀 데스매치가 20:50~21:30에 진행됩니다.")
+        if week[now.tm_wday] == '토':
+            await channell.send("토요일에는 2인 이그드라실이 10:00~24:00에, 주말 길드 파티가 20:00~20:20에, 전장이 12:50~14:30과 21:20~23:00에 진행됩니다. 또, 아직 1인 이그드라실을 한번도 안 했다면 2회 완료하기 위해서라면 반드시 1인 이그드라실을 해야하는 날입니다.")
+        if week[now.tm_wday] == '일':
+            await channell.send("일요일에는 2인 이그드라실이 10:00~24:00에, 무도회가 20:00~20:30에, 길드 사냥이 20:30부터, 전장이 12:50~14:30과 21:20~23:00에 진행됩니다. 또, 1인 이그드라실과 무한의 탑이 초기화되는 마지막 날입니다.")
+        return
     if message.content.startswith('엔젤링?') or message.content.startswith('ㅇㅈㄹ?'):
         global later013
         current1 = datetime.datetime.now()
@@ -157,7 +174,7 @@ async def on_message(message):
         leftsec = left - leftmin * 60
         await message.channel.send("오크 히어로 젠까지 " + str(leftmin) + "분 "+str(leftsec)+"초 남았습니다.")
         return
-    if message.content.startswith('마야') or message.content.startswith('ㅁㅇ'):
+    if message.content.startswith('마야?') or message.content.startswith('ㅁㅇ?'):
         global later053
         current1 = datetime.datetime.now()
         try:
@@ -193,7 +210,7 @@ async def on_message(message):
         leftsec = left - leftmin * 60
         await message.channel.send("오크 로드 젠까지 " + str(leftmin) + "분 "+str(leftsec)+"초 남았습니다.")
         return
-    if message.content.startswith('고리') or message.content.startswith('ㄱㄹ'):
+    if message.content.startswith('고리?') or message.content.startswith('ㄱㄹ?'):
         global later073
         current1 = datetime.datetime.now()
         try:
@@ -1547,7 +1564,7 @@ async def on_message(message):
                 await message.channel.send("{}가 미궁 숲 1층에 나타났습니다.".format(commander.mention))
                 tima13=0
                 break
-                                    
+           
                 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
