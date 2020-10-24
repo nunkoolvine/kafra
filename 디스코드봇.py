@@ -29,6 +29,22 @@ async def monmorning():
     guildd = client.get_guild(730294881020280873)
     dailyevent = discord.utils.get(guildd.roles, name="이벤트")
     await channell.send("{} 월요일에는 팀 데스매치가 20:50~21:30에 진행됩니다.".format(dailyevent.mention))
+async def TDM45():
+    channell = client.get_channel(768663062449750046)
+    guildd = client.get_guild(730294881020280873)
+    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
+    await channell.send("{} 팀 데스매치 대기실에 입장까지 5분 남았습니다.".format(dailyevent.mention))
+async def TDM50():
+    channell = client.get_channel(768663062449750046)
+    guildd = client.get_guild(730294881020280873)
+    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
+    await channell.send("{} 팀 데스매치 대기실 입장이 시작되었습니다. 앞으로 10분 동안 입장할 수 있습니다.".format(dailyevent.mention))
+async def TDM55():
+    channell = client.get_channel(768663062449750046)
+    guildd = client.get_guild(730294881020280873)
+    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
+    await channell.send("{} 팀 데스매치 시작까지 5분 남았습니다. 아직 입장하지 않으셨다면 서둘러 입장하셔야 합니다.".format(dailyevent.mention))
+   
 async def tuemorning():
     channell = client.get_channel(768663062449750046)
     guildd = client.get_guild(730294881020280873)
@@ -54,21 +70,49 @@ async def satmorning():
     guildd = client.get_guild(730294881020280873)
     dailyevent = discord.utils.get(guildd.roles, name="이벤트")
     await channell.send("{} 토요일에는 2인 이그드라실이 10:00~24:00에, 주말 길드 파티가 20:00~20:20에, 전장이 12:50~14:30과 21:20~23:00에 진행됩니다. 또, 아직 1인 이그드라실을 한번도 안 했다면 2회 완료하기 위해서라면 반드시 1인 이그드라실을 해야하는 날입니다.".format(dailyevent.mention))
+async def satcook():
+    channell = client.get_channel(768663062449750046)
+    guildd = client.get_guild(730294881020280873)
+    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
+    await channell.send("{} 주말 길드 파티가 5분후 시작됩니다.".format(dailyevent.mention))
 async def sunmorning():
     channell = client.get_channel(768663062449750046)
     guildd = client.get_guild(730294881020280873)
     dailyevent = discord.utils.get(guildd.roles, name="이벤트")
     await channell.send("{} 일요일에는 2인 이그드라실이 10:00~24:00에, 무도회가 20:00~20:30에, 길드 사냥이 20:30부터, 전장이 12:50~14:30과 21:20~23:00에 진행됩니다. 또, 1인 이그드라실과 무한의 탑이 초기화되는 마지막 날입니다.".format(dailyevent.mention))
+async def BPnot():
+    channell = client.get_channel(768663062449750046)
+    guildd = client.get_guild(730294881020280873)
+    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
+    await channell.send("{} 저녁 전장 시작까지 5분 남았습니다.".format(dailyevent.mention))
+async def BPbom():
+    channell = client.get_channel(768663062449750046)
+    guildd = client.get_guild(730294881020280873)
+    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
+    await channell.send("{} 점심 전장 시작까지 5분 남았습니다.".format(dailyevent.mention))
 
 
 
 sched.add_job(monmorning,'cron', day_of_week = 'mon', hour ='10', minute = '0' )
+sched.add_job(TDM45,'cron', day_of_week = 'mon', hour ='10', minute = '45' )
+sched.add_job(TDM50,'cron', day_of_week = 'mon', hour ='10', minute = '50' )
+sched.add_job(TDM55,'cron', day_of_week = 'mon', hour ='10', minute = '55' )
+
 sched.add_job(tuemorning,'cron', day_of_week = 'tue', hour ='10', minute = '0' )
+
 sched.add_job(wedmorning,'cron', day_of_week = 'wed', hour ='10', minute = '0' )
+
 sched.add_job(thumorning,'cron', day_of_week = 'thu', hour ='10', minute = '0' )
+
 sched.add_job(frimorning,'cron', day_of_week = 'fri', hour ='10', minute = '0' )
-sched.add_job(satmorning,'cron', day_of_week = 'sat', hour ='14', minute = '36' )
+
+sched.add_job(satmorning,'cron', day_of_week = 'sat-sun', hour ='10', minute = '0' )
+sched.add_job(satcook,'cron', day_of_week = 'sat', hour ='19', minute = '55' )
+
 sched.add_job(sunmorning,'cron', day_of_week = 'sun', hour ='10', minute = '0' )
+
+sched.add_job(BPnot,'cron', day_of_week = 'sat-sun', hour ='21', minute = '15' )
+sched.add_job(BPbom,'cron', day_of_week = 'sat-sun', hour ='12', minute = '45' )
 sched.start()
 @client.event
 async def on_ready():
@@ -79,6 +123,12 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user: # 만약 메시지를 보낸 사람과 봇이 서로 같을 때 
         return
+ 
+    if message.type is MessageType.new_member:
+        channell = client.get_channel(768663062449750046)
+        guildd = client.get_guild(730294881020280873)
+        await channell.send(str(message.author.name) + "님, 환영합니다! <#744363635865813203>에서 몇 가지 유용한 기능을 가진 카프라 봇의 사용법을 확인해보세요!")
+
     if message.content.startswith('ㅇㅂㅌ?') or message.content.startswith('이벤트?'):
         now = time.localtime()
         week = ( '월', '화', '수', '목', '금', '토', '일' )
