@@ -4,6 +4,7 @@ import threading
 import random
 import openpyxl
 from discord import Member
+from discord.enums import MessageType, try_enum
 from discord.ext import commands
 from urllib.request import urlopen, Request
 import schedule
