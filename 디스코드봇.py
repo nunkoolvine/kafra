@@ -126,7 +126,7 @@ async def on_message(message):
         return
  
     if message.type is MessageType.new_member:
-        channell = client.get_channel(768663062449750046)
+        channell = client.get_channel(730294881452556348)
         guildd = client.get_guild(730294881020280873)
         await channell.send(str(message.author.name) + "님, 환영합니다! <#744363635865813203>에서 몇 가지 유용한 기능을 가진 카프라 봇의 사용법을 확인해보세요!")
 
