@@ -67,7 +67,7 @@ sched.add_job(tuemorning,'cron', day_of_week = 'tue', hour ='10', minute = '0' )
 sched.add_job(wedmorning,'cron', day_of_week = 'wed', hour ='10', minute = '0' )
 sched.add_job(thumorning,'cron', day_of_week = 'thu', hour ='10', minute = '0' )
 sched.add_job(frimorning,'cron', day_of_week = 'fri', hour ='10', minute = '0' )
-sched.add_job(satmorning,'cron', day_of_week = 'sat', hour ='10', minute = '0' )
+sched.add_job(satmorning,'cron', day_of_week = 'sat', hour ='14', minute = '16' )
 sched.add_job(sunmorning,'cron', day_of_week = 'sun', hour ='10', minute = '0' )
 sched.start()
 @client.event
