@@ -469,7 +469,7 @@ async def on_message(message):
         return  
 
 
-    if message.content.startswith('/직업') or message.content.startswith('/알림'):
+    if message.content.startswith('/직업') or message.content.startswith('/알림 '):
         textrole = ""
         learn = message.content.split(" ")
         vrsize = len(learn)  # 배열크기
@@ -506,7 +506,7 @@ async def on_message(message):
             #print(role)
             try:
                 await member.remove_roles(role)
-                await message.channel.send(str(member)+"님에게서 "+str(role)+" 역할을 했습니다.")
+                await message.channel.send(str(member)+"님에게서 "+str(role)+" 역할을 해제했습니다.")
             except(AttributeError):
                 await message.channel.send("존재하지 않는 역할입니다. 맞는 직업 또는 보스 명칭인지 확인해주세요. ")              
             
