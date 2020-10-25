@@ -100,7 +100,7 @@ async def BPbom():
     channell = client.get_channel(768663062449750046)
     guildd = client.get_guild(730294881020280873)
     dailyevent = discord.utils.get(guildd.roles, name="이벤트")
-    await channell.send("{} 점심 전장이 시작 되었습니다. 앞으로 1시간 30분동안, 11시까지 진행됩니다.".format(dailyevent.mention))
+    await channell.send("{} 저녁 전장이 시작 되었습니다. 앞으로 1시간 30분동안, 11시까지 진행됩니다.".format(dailyevent.mention))
 
 
 
@@ -124,6 +124,8 @@ sched.add_job(sunmorning,'cron', day_of_week = 'sun', hour ='10', minute = '0' )
 
 sched.add_job(BPnotbefore,'cron', day_of_week = 'sat-sun', hour ='12', minute = '45' )
 sched.add_job(BPbombefore,'cron', day_of_week = 'sat-sun', hour ='21', minute = '15' )
+sched.add_job(BPnot,'cron', day_of_week = 'sat-sun', hour ='13', minute = '0' )
+sched.add_job(BPbom,'cron', day_of_week = 'sat-sun', hour ='21', minute = '30' )
 sched.start()
 @client.event
 async def on_ready():
