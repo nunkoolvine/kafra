@@ -488,6 +488,28 @@ async def on_message(message):
                 await message.channel.send(str(member)+"님에게 "+str(role)+" 역할을 부여했습니다.")
             except(AttributeError):
                 await message.channel.send("존재하지 않는 역할입니다. 맞는 직업 또는 보스 명칭인지 확인해주세요. ")
+          
+
+    if message.content.startswith('/퇴직') or message.content.startswith('/알림끄기'):
+        textrole = ""
+        learn = message.content.split(" ")
+        vrsize = len(learn)  # 배열크기
+        vrsize = int(vrsize)
+        for i in range(1, 2):  # 띄어쓰기 한 텍스트들 인식함
+            textrole = textrole + learn[i]
+            textrole = str(textrole)
+#        if message.content.find("엔젤링"):
+            #print(textrole)
+            role = get(message.guild.roles, name=textrole)
+            member = message.author
+            #print(member)
+            #print(role)
+            try:
+                await member.remove_roles(role)
+                await message.channel.send(str(member)+"님에게서 "+str(role)+" 역할을 했습니다.")
+            except(AttributeError):
+                await message.channel.send("존재하지 않는 역할입니다. 맞는 직업 또는 보스 명칭인지 확인해주세요. ")              
+            
         
             
 
