@@ -105,9 +105,9 @@ async def BPbom():
 
 
 sched.add_job(monmorning,'cron', day_of_week = 'mon', hour ='10', minute = '0' )
-sched.add_job(TDM45,'cron', day_of_week = 'mon', hour ='10', minute = '45' )
-sched.add_job(TDM50,'cron', day_of_week = 'mon', hour ='10', minute = '50' )
-sched.add_job(TDM55,'cron', day_of_week = 'mon', hour ='10', minute = '55' )
+sched.add_job(TDM45,'cron', day_of_week = 'mon', hour ='20', minute = '45' )
+sched.add_job(TDM50,'cron', day_of_week = 'mon', hour ='20', minute = '50' )
+sched.add_job(TDM55,'cron', day_of_week = 'mon', hour ='20', minute = '55' )
 
 sched.add_job(tuemorning,'cron', day_of_week = 'tue', hour ='10', minute = '0' )
 
