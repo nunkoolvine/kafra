@@ -17,7 +17,8 @@ sched = AsyncIOScheduler()
 global min
 global dralast
 client = discord.Client()
-
+global later303
+global later313
 global channel
 global current1
 global current2
@@ -134,6 +135,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    global later313
+    global later303
     if message.author == client.user: # 만약 메시지를 보낸 사람과 봇이 서로 같을 때 
         return
  
@@ -143,79 +146,56 @@ async def on_message(message):
         await channell.send(str(message.author.name) + "님, 환영합니다! <#744363635865813203>에서 몇 가지 유용한 기능을 가진 카프라 봇의 사용법을 확인해보세요!")
 
     if message.content.startswith('길엠?') or message.content.startswith('ㄱㅇ?'):
-        global later013
         current1 = datetime.datetime.now()
         try:
-            left15 = int((later153 - current1).seconds)
+            left30 = int((later303 - current1).seconds)
         except(NameError):
             await message.channel.send("아직 길드 MVP 젠 시간이 등록되지 않았습니다. 확인 후 등록해주시기 바랍니다.")
         
-        if left15>7200:
-            left15 = 86400 - left15
-            leftmin15 = left15 // 60
-            leftsec15 = left15 - leftmin15 * 60
+        if left30>7200:
+            left30 = 86400 - left30
+            leftmin30 = left30 // 60
+            leftsec30 = left30 - leftmin30 * 60
             await message.channel.send("아직 젠 시간이 등록되지 않았습니다. 확인 후 등록해주시기 바랍니다. 등록된 마지막 젠으로부터 "+ str(leftmin15) + "분 "+str(leftsec15)+"초 지났습니다.")
                   
-        leftmin15 = left15 // 60
-        leftsec15 = left15 - leftmin15 * 60
+        leftmin30 = left30 // 60
+        leftsec30 = left30 - leftmin30 * 60
         
-        await message.channel.send("길드 MVP 젠까지 " + str(leftmin15) + "분 "+str(leftsec15)+"초 남았습니다.")
+        await message.channel.send("길드 MVP 젠까지 " + str(leftmin30) + "분 "+str(leftsec30)+"초 남았습니다.")
         return
     
     if message.content.startswith('길미?') or message.content.startswith('ㄱㅁ?'):
-        global later013
         current1 = datetime.datetime.now()
         try:
-            left16 = int((later163 - current1).seconds)
+            left31 = int((later313 - current1).seconds)
         except(NameError):
             await message.channel.send("아직 길드 mini 젠 시간이 등록되지 않았습니다. 확인 후 등록해주시기 바랍니다.")
        
-        if left16>7200:
-            left16 = 86400 - left16
-            leftmin16 = left16// 60
-            leftsec16 = left16- leftmin16 * 60
-            await message.channel.send("아직 젠 시간이 등록되지 않았습니다. 확인 후 등록해주시기 바랍니다. 등록된 마지막 젠으로부터 "+ str(leftmin16) + "분 "+str(leftsec16)+"초 지났습니다.")
+        if left31>7200:
+            left31 = 86400 - left31
+            leftmin31 = left31// 60
+            leftsec31 = left31- leftmin31 * 60
+            await message.channel.send("마지막 젠 이후 보스가 잡힌 시간이 기록되지 않았습니다. 등록된 마지막 젠으로부터 "+ str(leftmin31) + "분 "+str(leftsec31)+"초 지났습니다.")
                    
-        leftmin16 = left16 // 60
-        leftsec16 = left16 - leftmin16 * 60
-        await message.channel.send("길드 mini 젠까지 " + str(leftmin16) + "분 "+str(leftsec16)+"초 남았습니다.")
+        leftmin31 = left31 // 60
+        leftsec31 = left31 - leftmin31 * 60
+        await message.channel.send("길드 mini 젠까지 " + str(leftmin31) + "분 "+str(leftsec31)+"초 남았습니다.")
         return
     
     if message.content.startswith('길보?') or message.content.startswith('ㄱㅂ?'):
-        global later013
         current1 = datetime.datetime.now()
-        try:
-            left15 = int((later153 - current1).seconds)
-        except(NameError):
-            await message.channel.send("아직 길드 MVP 젠 시간이 등록되지 않았습니다. 확인 후 등록해주시기 바랍니다.")
-        try:
-            left16 = int((later163 - current1).seconds)
-        except(NameError):
-            await message.channel.send("아직 길드 mini 젠 시간이 등록되지 않았습니다. 확인 후 등록해주시기 바랍니다.")
-        
-        if left15>7200:
-            left15 = 86400 - left15
-            leftmin15 = left15 // 60
-            leftsec15 = left15 - leftmin15 * 60
-            await message.channel.send("아직 젠 시간이 등록되지 않았습니다. 확인 후 등록해주시기 바랍니다. 등록된 마지막 젠으로부터 "+ str(leftmin15) + "분 "+str(leftsec15)+"초 지났습니다.")
-                  
-        leftmin15 = left15 // 60
-        leftsec15 = left15 - leftmin15 * 60
-        
-        if left16>7200:
-            left16 = 86400 - left16
-            leftmin16 = left16// 60
-            leftsec16 = left16- leftmin16 * 60
-            await message.channel.send("아직 젠 시간이 등록되지 않았습니다. 확인 후 등록해주시기 바랍니다. 등록된 마지막 젠으로부터 "+ str(leftmin16) + "분 "+str(leftsec16)+"초 지났습니다.")
-                   
-        leftmin16 = left16 // 60
-        leftsec16 = left16 - leftmin16 * 60
-        await message.channel.send("길드 MVP 젠까지 " + str(leftmin15) + "분 "+str(leftsec15)+"초 남았습니다. \n길드 mini 젠까지 " + str(leftmin16) + "분 "+str(leftsec16)+"초 남았습니다.")
+        left30 = int((later303 - current1).seconds)
+        left31 = int((later313 - current1).seconds)
+        leftmin30 = left30 // 60
+        leftsec30 = left30 - leftmin30 * 60
+        leftmin31 = left31 // 60
+        leftsec31 = left31 - leftmin31 * 60
+        await message.channel.send("길드 MVP 젠까지 " + str(leftmin30) + "분 "+str(leftsec30)+"초 남았습니다. \n길드 mini 젠까지 " + str(leftmin31) + "분 "+str(leftsec31)+"초 남았습니다.")
         return
 
     if message.content.startswith('길엠') or message.content.startswith('ㄱㅇ'):
-        global on15
-        on15 = 0
+        global on30
+        on30 = 0
         await asyncio.sleep(1)
         current1 = datetime.datetime.now()
         
@@ -223,36 +203,36 @@ async def on_message(message):
         sec = 0
         #print(sec)
         current1 = datetime.datetime.now()
-        later151 = current1 + datetime.timedelta(seconds=min*60+sec-900)
-        later152 = current1 + datetime.timedelta(seconds=min*60+sec-300)
-        later153 = current1 + datetime.timedelta(seconds=min*60+sec)
+        later301 = current1 + datetime.timedelta(seconds=min*60+sec-900)
+        later302 = current1 + datetime.timedelta(seconds=min*60+sec-300)
+        later303 = current1 + datetime.timedelta(seconds=min*60+sec)
 
         #print(tima11)
         #print(tima12)
         #print(tima13)
-        on15 = 1
+        on30 = 1
         await message.channel.send("길드 MVP 처치를 기록했습니다. 앞으로 2시간 후에 다시 출현합니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
-        while on15 == 1:
+        while on30 == 1:
             await asyncio.sleep(0.1) 
             current1 =  datetime.datetime.now()
             #print(current1)
-            if current1 > later151 and tima11==1:
+            if current1 > later301 and tima11==1:
                 commander = discord.utils.get(message.guild.roles, name="길드MVP")
                 await message.channel.send("{} 젠까지 15분 남았습니다.".format(commander.mention))
                 tima11=0
-            if current1 > later152 and tima12==1:
+            if current1 > later302 and tima12==1:
                 commander = discord.utils.get(message.guild.roles, name="길드MVP")
                 await message.channel.send("{} 젠까지 5분 남았습니다.".format(commander.mention))
                 tima12=0
-            if current1 > later153 and tima13==1:
+            if current1 > later303 and tima13==1:
                 commander = discord.utils.get(message.guild.roles, name="길드MVP")
                 await message.channel.send("{}가 길드 던전에 나타났습니다.".format(commander.mention))
                 tima13=0
                 break
                 
     if message.content.startswith('길미') or message.content.startswith('ㄱㅁ'):
-        global on16
-        on16 = 0
+        global on31
+        on31 = 0
         await asyncio.sleep(1)
         current1 = datetime.datetime.now()
         
@@ -260,28 +240,28 @@ async def on_message(message):
         sec = 0
         #print(sec)
         current1 = datetime.datetime.now()
-        later161 = current1 + datetime.timedelta(seconds=min*60+sec-900)
-        later162 = current1 + datetime.timedelta(seconds=min*60+sec-300)
-        later163 = current1 + datetime.timedelta(seconds=min*60+sec)
+        later311 = current1 + datetime.timedelta(seconds=min*60+sec-900)
+        later312 = current1 + datetime.timedelta(seconds=min*60+sec-300)
+        later313 = current1 + datetime.timedelta(seconds=min*60+sec)
 
         #print(tima11)
         #print(tima12)
         #print(tima13)
-        on16 = 1
+        on31 = 1
         await message.channel.send("길드 mini 처치를 기록했습니다. 앞으로 2시간 후에 다시 출현합니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
-        while on16 == 1:
+        while on31 == 1:
             await asyncio.sleep(0.1) 
             current1 =  datetime.datetime.now()
             #print(current1)
-            if current1 > later161 and tima11==1:
+            if current1 > later311 and tima11==1:
                 commander = discord.utils.get(message.guild.roles, name="길드 mini")
                 await message.channel.send("{} 젠까지 15분 남았습니다.".format(commander.mention))
                 tima11=0
-            if current1 > later162 and tima12==1:
+            if current1 > later312 and tima12==1:
                 commander = discord.utils.get(message.guild.roles, name="길드 mini")
                 await message.channel.send("{} 젠까지 5분 남았습니다.".format(commander.mention))
                 tima12=0
-            if current1 > later163 and tima13==1:
+            if current1 > later313 and tima13==1:
                 commander = discord.utils.get(message.guild.roles, name="길드 mini")
                 await message.channel.send("{}가 길드 던전 나타났습니다.".format(commander.mention))
                 tima13=0
@@ -1790,7 +1770,7 @@ async def on_message(message):
                 await message.channel.send("{}가 미궁 숲 1층에 나타났습니다.".format(commander.mention))
                 tima13=0
                 break
-           
+         
                 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
