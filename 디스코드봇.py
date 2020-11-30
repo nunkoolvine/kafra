@@ -13,12 +13,14 @@ import datetime
 import os
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from discord.utils import get
+
+intents = discord.Intents.default()
+intents.members = True
+
 sched = AsyncIOScheduler()
 global min
-global dralast
+clientt = discord.Client(intents=intents)
 client = discord.Client()
-global later303
-global later313
 global channel
 global current1
 global current2
@@ -31,22 +33,6 @@ async def monmorning():
     guildd = client.get_guild(730294881020280873)
     dailyevent = discord.utils.get(guildd.roles, name="이벤트")
     await channell.send("{} 월요일에는 팀 데스매치가 20:50~21:30에 진행됩니다.".format(dailyevent.mention))
-async def TDM45():
-    channell = client.get_channel(768663062449750046)
-    guildd = client.get_guild(730294881020280873)
-    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
-    await channell.send("{} 팀 데스매치 대기실에 입장까지 5분 남았습니다.".format(dailyevent.mention))
-async def TDM50():
-    channell = client.get_channel(768663062449750046)
-    guildd = client.get_guild(730294881020280873)
-    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
-    await channell.send("{} 팀 데스매치 대기실 입장이 시작되었습니다. 앞으로 10분 동안 입장할 수 있습니다.".format(dailyevent.mention))
-async def TDM55():
-    channell = client.get_channel(768663062449750046)
-    guildd = client.get_guild(730294881020280873)
-    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
-    await channell.send("{} 팀 데스매치 시작까지 5분 남았습니다. 아직 입장하지 않으셨다면 서둘러 입장하셔야 합니다.".format(dailyevent.mention))
-   
 async def tuemorning():
     channell = client.get_channel(768663062449750046)
     guildd = client.get_guild(730294881020280873)
@@ -72,201 +58,36 @@ async def satmorning():
     guildd = client.get_guild(730294881020280873)
     dailyevent = discord.utils.get(guildd.roles, name="이벤트")
     await channell.send("{} 토요일에는 2인 이그드라실이 10:00~24:00에, 주말 길드 파티가 20:00~20:20에, 전장이 12:50~14:30과 21:20~23:00에 진행됩니다. 또, 아직 1인 이그드라실을 한번도 안 했다면 2회 완료하기 위해서라면 반드시 1인 이그드라실을 해야하는 날입니다.".format(dailyevent.mention))
-async def satcook():
-    channell = client.get_channel(768663062449750046)
-    guildd = client.get_guild(730294881020280873)
-    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
-    await channell.send("{} 주말 길드 파티가 5분후 시작됩니다.".format(dailyevent.mention))
 async def sunmorning():
     channell = client.get_channel(768663062449750046)
     guildd = client.get_guild(730294881020280873)
     dailyevent = discord.utils.get(guildd.roles, name="이벤트")
     await channell.send("{} 일요일에는 2인 이그드라실이 10:00~24:00에, 무도회가 20:00~20:30에, 길드 사냥이 20:30부터, 전장이 12:50~14:30과 21:20~23:00에 진행됩니다. 또, 1인 이그드라실과 무한의 탑이 초기화되는 마지막 날입니다.".format(dailyevent.mention))
-async def BPnotbefore():
-    channell = client.get_channel(768663062449750046)
-    guildd = client.get_guild(730294881020280873)
-    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
-    await channell.send("{} 점심 전장 대기실 입장까지 5분 남았습니다. 입장 후 10분 후, 1시부터 전장이 시작됩니다.".format(dailyevent.mention))
-async def BPbombefore():
-    channell = client.get_channel(768663062449750046)
-    guildd = client.get_guild(730294881020280873)
-    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
-    await channell.send("{} 저녁 전장 대기실 입장까지 5분 남았습니다. 입장 후 10분 후, 9시 30분부터 전장이 시작됩니다.".format(dailyevent.mention))
-async def BPnot():
-    channell = client.get_channel(768663062449750046)
-    guildd = client.get_guild(730294881020280873)
-    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
-    await channell.send("{} 점심 전장이 시작 되었습니다. 앞으로 1시간 30분동안, 2시 30분까지 진행됩니다.".format(dailyevent.mention))
-async def BPbom():
-    channell = client.get_channel(768663062449750046)
-    guildd = client.get_guild(730294881020280873)
-    dailyevent = discord.utils.get(guildd.roles, name="이벤트")
-    await channell.send("{} 저녁 전장이 시작 되었습니다. 앞으로 1시간 30분동안, 11시까지 진행됩니다.".format(dailyevent.mention))
 
 
-
-sched.add_job(monmorning,'cron', day_of_week = 'mon', hour ='10', minute = '0' )
-sched.add_job(TDM45,'cron', day_of_week = 'mon', hour ='20', minute = '45' )
-sched.add_job(TDM50,'cron', day_of_week = 'mon', hour ='20', minute = '50' )
-sched.add_job(TDM55,'cron', day_of_week = 'mon', hour ='20', minute = '55' )
-
-sched.add_job(tuemorning,'cron', day_of_week = 'tue', hour ='10', minute = '0' )
-
-sched.add_job(wedmorning,'cron', day_of_week = 'wed', hour ='10', minute = '0' )
-
-sched.add_job(thumorning,'cron', day_of_week = 'thu', hour ='10', minute = '0' )
-
-sched.add_job(frimorning,'cron', day_of_week = 'fri', hour ='10', minute = '0' )
-
-sched.add_job(satmorning,'cron', day_of_week = 'sat', hour ='10', minute = '0' )
-sched.add_job(satcook,'cron', day_of_week = 'sat', hour ='19', minute = '55' )
-
-sched.add_job(sunmorning,'cron', day_of_week = 'sun', hour ='10', minute = '0' )
-
-sched.add_job(BPnotbefore,'cron', day_of_week = 'sat-sun', hour ='12', minute = '45' )
-sched.add_job(BPbombefore,'cron', day_of_week = 'sat-sun', hour ='21', minute = '15' )
-sched.add_job(BPnot,'cron', day_of_week = 'sat-sun', hour ='13', minute = '0' )
-sched.add_job(BPbom,'cron', day_of_week = 'sat-sun', hour ='21', minute = '30' )
+sched.add_job(monmorning,'cron', day_of_week = 'mon', hour ='10')
+sched.add_job(tuemorning,'cron', day_of_week = 'tue', hour ='10')
+sched.add_job(wedmorning,'cron', day_of_week = 'wed', hour ='10')
+sched.add_job(thumorning,'cron', day_of_week = 'thu', hour ='10')
+sched.add_job(frimorning,'cron', day_of_week = 'fri', hour ='10')
+sched.add_job(satmorning,'cron', day_of_week = 'sat', hour ='15')
+sched.add_job(sunmorning,'cron', day_of_week = 'sat', hour ='15', minute = '0')
 sched.start()
 @client.event
 async def on_ready():
     print("bot online!")
+    print(discord.MessageType)
 
 
 @client.event
 async def on_message(message):
-    global later313
-    global later303
     if message.author == client.user: # 만약 메시지를 보낸 사람과 봇이 서로 같을 때 
         return
- 
     if message.type is MessageType.new_member:
-        channell = client.get_channel(730294881452556348)
+        channell = client.get_channel(768663062449750046)
         guildd = client.get_guild(730294881020280873)
-        await channell.send(str(message.author.name) + "님, 환영합니다! <#744363635865813203>에서 몇 가지 유용한 기능을 가진 카프라 봇의 사용법을 확인해보세요!")
+        await channell.send(str(message.author.name) + "님이 들어왔습니다. 환영합니다. <#744363635865813203>에서 몇 가지 유용한 기능을 가진 카프라 봇의 사용법을 확인해보세요!")
 
-    if message.content.startswith('길엠?') or message.content.startswith('ㄱㅇ?'):
-        current1 = datetime.datetime.now()
-        try:
-            left30 = int((later303 - current1).seconds)
-        except(NameError):
-            await message.channel.send("아직 길드 MVP 젠 시간이 등록되지 않았습니다. 확인 후 등록해주시기 바랍니다.")
-        
-        if left30>7200:
-            left30 = 86400 - left30
-            leftmin30 = left30 // 60
-            leftsec30 = left30 - leftmin30 * 60
-            await message.channel.send("아직 젠 시간이 등록되지 않았습니다. 확인 후 등록해주시기 바랍니다. 등록된 마지막 젠으로부터 "+ str(leftmin15) + "분 "+str(leftsec15)+"초 지났습니다.")
-                  
-        leftmin30 = left30 // 60
-        leftsec30 = left30 - leftmin30 * 60
-        
-        await message.channel.send("길드 MVP 젠까지 " + str(leftmin30) + "분 "+str(leftsec30)+"초 남았습니다.")
-        return
-    
-    if message.content.startswith('길미?') or message.content.startswith('ㄱㅁ?'):
-        current1 = datetime.datetime.now()
-        try:
-            left31 = int((later313 - current1).seconds)
-        except(NameError):
-            await message.channel.send("아직 길드 mini 젠 시간이 등록되지 않았습니다. 확인 후 등록해주시기 바랍니다.")
-       
-        if left31>7200:
-            left31 = 86400 - left31
-            leftmin31 = left31// 60
-            leftsec31 = left31- leftmin31 * 60
-            await message.channel.send("마지막 젠 이후 보스가 잡힌 시간이 기록되지 않았습니다. 등록된 마지막 젠으로부터 "+ str(leftmin31) + "분 "+str(leftsec31)+"초 지났습니다.")
-                   
-        leftmin31 = left31 // 60
-        leftsec31 = left31 - leftmin31 * 60
-        await message.channel.send("길드 mini 젠까지 " + str(leftmin31) + "분 "+str(leftsec31)+"초 남았습니다.")
-        return
-    
-    if message.content.startswith('길보?') or message.content.startswith('ㄱㅂ?'):
-        current1 = datetime.datetime.now()
-        left30 = int((later303 - current1).seconds)
-        left31 = int((later313 - current1).seconds)
-        leftmin30 = left30 // 60
-        leftsec30 = left30 - leftmin30 * 60
-        leftmin31 = left31 // 60
-        leftsec31 = left31 - leftmin31 * 60
-        await message.channel.send("길드 MVP 젠까지 " + str(leftmin30) + "분 "+str(leftsec30)+"초 남았습니다. \n길드 mini 젠까지 " + str(leftmin31) + "분 "+str(leftsec31)+"초 남았습니다.")
-        return
-
-    if message.content.startswith('길엠') or message.content.startswith('ㄱㅇ'):
-        global on30
-        on30 = 0
-        await asyncio.sleep(1)
-        current1 = datetime.datetime.now()
-        
-        min = 120
-        sec = 0
-        #print(sec)
-        current1 = datetime.datetime.now()
-        later301 = current1 + datetime.timedelta(seconds=min*60+sec-900)
-        later302 = current1 + datetime.timedelta(seconds=min*60+sec-300)
-        later303 = current1 + datetime.timedelta(seconds=min*60+sec)
-
-        #print(tima11)
-        #print(tima12)
-        #print(tima13)
-        on30 = 1
-        await message.channel.send("길드 MVP 처치를 기록했습니다. 앞으로 2시간 후에 다시 출현합니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
-        while on30 == 1:
-            await asyncio.sleep(0.1) 
-            current1 =  datetime.datetime.now()
-            #print(current1)
-            if current1 > later301 and tima11==1:
-                commander = discord.utils.get(message.guild.roles, name="길드MVP")
-                await message.channel.send("{} 젠까지 15분 남았습니다.".format(commander.mention))
-                tima11=0
-            if current1 > later302 and tima12==1:
-                commander = discord.utils.get(message.guild.roles, name="길드MVP")
-                await message.channel.send("{} 젠까지 5분 남았습니다.".format(commander.mention))
-                tima12=0
-            if current1 > later303 and tima13==1:
-                commander = discord.utils.get(message.guild.roles, name="길드MVP")
-                await message.channel.send("{}가 길드 던전에 나타났습니다.".format(commander.mention))
-                tima13=0
-                break
-                
-    if message.content.startswith('길미') or message.content.startswith('ㄱㅁ'):
-        global on31
-        on31 = 0
-        await asyncio.sleep(1)
-        current1 = datetime.datetime.now()
-        
-        min = 120
-        sec = 0
-        #print(sec)
-        current1 = datetime.datetime.now()
-        later311 = current1 + datetime.timedelta(seconds=min*60+sec-900)
-        later312 = current1 + datetime.timedelta(seconds=min*60+sec-300)
-        later313 = current1 + datetime.timedelta(seconds=min*60+sec)
-
-        #print(tima11)
-        #print(tima12)
-        #print(tima13)
-        on31 = 1
-        await message.channel.send("길드 mini 처치를 기록했습니다. 앞으로 2시간 후에 다시 출현합니다. 15분과 5분 전, 리젠 시에 알려드겠습니다.")
-        while on31 == 1:
-            await asyncio.sleep(0.1) 
-            current1 =  datetime.datetime.now()
-            #print(current1)
-            if current1 > later311 and tima11==1:
-                commander = discord.utils.get(message.guild.roles, name="길드 mini")
-                await message.channel.send("{} 젠까지 15분 남았습니다.".format(commander.mention))
-                tima11=0
-            if current1 > later312 and tima12==1:
-                commander = discord.utils.get(message.guild.roles, name="길드 mini")
-                await message.channel.send("{} 젠까지 5분 남았습니다.".format(commander.mention))
-                tima12=0
-            if current1 > later313 and tima13==1:
-                commander = discord.utils.get(message.guild.roles, name="길드 mini")
-                await message.channel.send("{}가 길드 던전 나타났습니다.".format(commander.mention))
-                tima13=0
-                break
-                
     if message.content.startswith('ㅇㅂㅌ?') or message.content.startswith('이벤트?'):
         now = time.localtime()
         week = ( '월', '화', '수', '목', '금', '토', '일' )
@@ -594,7 +415,7 @@ async def on_message(message):
         return  
 
 
-    if message.content.startswith('/직업') or message.content.startswith('/알림 '):
+    if message.content.startswith('/직업') or message.content.startswith('/알림'):
         textrole = ""
         learn = message.content.split(" ")
         vrsize = len(learn)  # 배열크기
@@ -613,28 +434,6 @@ async def on_message(message):
                 await message.channel.send(str(member)+"님에게 "+str(role)+" 역할을 부여했습니다.")
             except(AttributeError):
                 await message.channel.send("존재하지 않는 역할입니다. 맞는 직업 또는 보스 명칭인지 확인해주세요. ")
-          
-
-    if message.content.startswith('/퇴직') or message.content.startswith('/알림끄기'):
-        textrole = ""
-        learn = message.content.split(" ")
-        vrsize = len(learn)  # 배열크기
-        vrsize = int(vrsize)
-        for i in range(1, 2):  # 띄어쓰기 한 텍스트들 인식함
-            textrole = textrole + learn[i]
-            textrole = str(textrole)
-#        if message.content.find("엔젤링"):
-            #print(textrole)
-            role = get(message.guild.roles, name=textrole)
-            member = message.author
-            #print(member)
-            #print(role)
-            try:
-                await member.remove_roles(role)
-                await message.channel.send(str(member)+"님에게서 "+str(role)+" 역할을 해제했습니다.")
-            except(AttributeError):
-                await message.channel.send("존재하지 않는 역할입니다. 맞는 직업 또는 보스 명칭인지 확인해주세요. ")              
-            
         
             
 
@@ -1770,7 +1569,6 @@ async def on_message(message):
                 await message.channel.send("{}가 미궁 숲 1층에 나타났습니다.".format(commander.mention))
                 tima13=0
                 break
-         
                 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
